@@ -1,8 +1,7 @@
-import 'package:chatapp_ui/providers/messages.dart';
-import 'package:chatapp_ui/providers/users.dart';
+import 'package:chatapp_ui/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'constants/color.dart';
 import 'screens/home_screen.dart';
 
 void main() => runApp(const ChatApp());
@@ -17,14 +16,23 @@ class ChatApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => UserData(),
         ),
-         ChangeNotifierProvider(
+        ChangeNotifierProvider(
           create: (context) => MessageData(),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
+        title: 'ChatApp UI',
+        theme: ThemeData(
+          primaryColor: primaryColor,
+          primarySwatch: primaryColor,
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: primaryColor,
+            secondary: accentColor,
+          ),
+        ),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
-        routes: {},
+        home: const HomeScreen(),
+        routes: const {},
       ),
     );
   }
