@@ -1,4 +1,5 @@
 import 'package:chatapp_ui/providers/providers.dart';
+import 'package:chatapp_ui/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'constants/color.dart';
@@ -32,7 +33,9 @@ class ChatApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         home: const HomeScreen(),
-        routes: const {},
+        routes:  {
+          ChatScreen.routeName:(context) => const ChatScreen()
+        },
       ),
     );
   }
